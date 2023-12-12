@@ -1,0 +1,248 @@
+<html>
+    <head>
+        <title>Fruit Hangman</title>>
+    </head>
+    <body>
+        <script>
+// Takes an array of words, returns a random word from the array
+function randomWord(wordArray) {
+    let randomNumber = Math.floor(Math.random() * wordArray.length);
+    return wordArray[randomNumber];
+}
+
+/* Takes the answer word and returns an array of letters in the word 
+without duplicate letters */
+function uniqueLetters(answerWord) {
+    let uniqueArray = [];
+    uniqueArray = Array.from(answerWord).sort();
+
+    for (i = 0; i < (uniqueArray.length - 1); i++) {
+        if (uniqueArray[i] == uniqueArray[i + 1]){
+            uniqueArray.splice(i, 1); 
+        }
+    }
+
+    return uniqueArray;
+}
+
+/* Takes a letter and an array of used letters, 
+returns true if letter is among used letters, returns false otherwise */
+function checkUsedLetter(letter, usedArray) {
+    if (usedArray.includes(letter)) {
+        console.log(`"${letter}" has already been used.`);
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+/* Takes the user's input and returns true if it is 
+valid (one letter in length), returns false otherwise */
+function checkValidInput(input) {
+    if (input.length != 1) {
+        console.log("Invalid input.");
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+/* Takes guessed word and compares it with answer word, if the guessed word 
+shows a completed answer word, return indicator that user has won */
+function checkWin(gridArray, answerWord, indicator) {
+    let guessWord = gridArray.join("");
+    
+    if (guessWord == answerWord) {
+        indicator = true;
+    }
+
+    return indicator;
+}
+
+/* Takes the answer word and an empty array, adds one underscore for every 
+letter in the word to signify unguessed letters, returns the edited array */
+function emptyBase(answerWord, array) {
+    for (i = 0; i < answerWord.length; i++) {
+        array.push("_");
+    }
+
+    return array;
+}
+
+/* Takes the grid array of the guessed letters (underscores and letters) 
+and prints the array with spaces in between */
+function printGrid(gridArray) {
+    let guessWord = "";
+    guessWord = gridArray.join(" ");
+    console.log(guessWord);
+    return;
+}
+
+/* Takes the number of lives, creates and prints a hangman visual based on it,
+returns nothing */ 
+function printHangMan(lives) {   
+    let line = [" _______", " |	   |", " |", " | ", " |  ", " |   ", "¯¯¯¯"];
+    
+    // Change hangman visual if lives changed
+    if (lives == 5) {
+        line[2] = " |	   0";
+    }
+    else if (lives == 4) {
+        line[2] = " |	   0";
+        line[3] = " |	   |";
+    }
+    else if (lives == 3) {
+        line[2] = " |	   0";
+        line[3] = " |	  \\|";
+    }
+    else if (lives == 2) {
+        line[2] = " |	   0";
+        line[3] = " |	  \\|/";
+    }
+    else if (lives == 1) {
+        line[2] = " |	   0";
+        line[3] = " |	  \\|/";
+        line[4] = " |	  /";
+    }
+    else if (lives == 0) {
+        line[2] = " |	   0";
+        line[3] = " |	  \\|/";
+        line[4] = " |	  / \\";
+    }
+
+    // Print each hangman visual line
+    for (let i = 0; i < line.length; i++) {
+        console.log(line[i]);
+    }
+
+    return;
+}
+
+/* Takes the answer word, grid array of guessed letters, and letter input, 
+replaces "_" in the grid array with the correct letter if the letter 
+guessed is right, returns the updated grid array */
+function updateGrid(answerWord, gridArray, letter) {
+    for (i = 0; i < answerWord.length; i++) {
+        if (letter === answerWord[i]) {
+            gridArray[i] = letter;
+        }
+    }
+
+    return gridArray;
+}
+
+/* Takes the array of unique letters, the letter inputted, and life count, 
+returns deducted life count if letter inputted is not a letter in the word */
+function updateLives(uniqueArray, letter, lives) {
+    if (uniqueArray.includes(letter) == false) {
+        lives -= 1;
+        console.log(`"${letter}" is NOT in the word`);
+    }
+    else {
+        console.log(`"${letter}" is in the word.`);
+    }
+    
+    console.log("\n");
+
+    return lives;
+}
+
+// Takes letter input and used letters array, returns updated used letters array
+function updateUsedLetters(usedArray, letter) {
+    usedArray.push(letter);
+    return usedArray;
+}
+
+// Takes an array of possible answer words and plays hangman, returns nothing
+function play(wordsArray) {
+    // Determine answer word
+    let keyWord = randomWord(wordsArray);
+    
+    // Create a grid of underscores based on answer word
+    let grid = [];
+    grid = emptyBase(keyWord, grid);
+
+    // Determine the unique letters in the answer word
+    let uniqueLettersArray = [];
+    uniqueLettersArray = uniqueLetters(keyWord);
+
+    let lives = 6;
+    let usedLetters = [];
+    let gameOver = false;
+    let winIndicator = false;
+
+    alert("    FRUIT HANGMAN \n\n\
+    How to play:\n\
+    - Try to guess the secret fruit by guessing one letter at a time \n\
+    - The blank lines indicate the number of letters in the word\n\
+    - You start with 6 lives\n\
+    - You lose 1 life every time you guess a letter not in the word\n\
+    - Lives are not lost when a letter already used is guessed again\n\n\
+    To win: Correctly guess the fruit by inputting all the correct letters\n\
+    To lose: Complete the hangman by losing all your lives\n\n\
+    Enjoy the game!");
+
+    console.log("FRUIT HANGMAN")
+
+    // Keep playing until win or lose is reached
+    while (!gameOver) {
+    
+        let validityIndicator = false;
+        let letter = "";
+
+        printHangMan(lives);
+        printGrid(grid);
+        console.log("Used letters: " + usedLetters.join(", "));
+        console.log(`${lives} lives left.`);
+
+        // Keep asking for input until input is valid (one letter and not used before)
+        while (validityIndicator != true) {
+            letter = ((prompt("Enter a letter: ")).replace(/[^A-Za-z]/g, "")).toUpperCase();
+
+            if ((checkValidInput(letter) == true) && 
+            (checkUsedLetter(letter, usedLetters) == false)) {
+                validityIndicator = true;
+                break;
+            }
+        }
+
+        // Update the used letters, grid, and lives based on letter inputted, check if user has won
+        usedLetters = updateUsedLetters(usedLetters, letter);
+        grid = updateGrid(keyWord, grid, letter);
+        lives = updateLives(uniqueLettersArray, letter, lives);
+        winIndicator = checkWin(grid, keyWord, winIndicator);
+
+        // If lives is 0 or the word is completed, game is over
+        if ((lives < 1) || winIndicator) {
+            gameOver = true;
+        }
+    }
+
+    /* If user won, print the full word and congratulations message, 
+    if lost, print hangman and loss message */
+    if (winIndicator) {
+        printGrid(grid);
+        console.log(`Congratulations! You guessed the word "${keyWord}" correctly with ${lives} lives left.`);
+    }
+    else {
+        printHangMan(lives);
+        console.log(`Game over. The word was ${keyWord}.`);
+    }
+
+    console.log("Thank you for playing!");
+
+    return;
+}
+
+
+const ANSWER_WORDS = ["GRAPE", "APPLE", "PEACH", "AVOCADO", "MELON", 
+                    "STRAWBERRY", "PEAR", "POMEGRANATE", "WATERMELON", "MANGO",
+                    "CHERRY", "APRICOT"];
+
+play(ANSWER_WORDS);
+        </script>
+        <h1> Fruit Hangman </h1>
+    </body>
+</html>
