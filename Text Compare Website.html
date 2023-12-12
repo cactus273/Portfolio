@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Text Compare</title>
+</head>
+<body>
+    <!--Title header, description of what the HTML page does.-->
+    <h1>Text Compare!</h1>
+    <div style="margin-left: 7rem; margin-right: 7rem;">
+        <h2 class="description">Text Compare will show 
+            the texts' word counts, character counts, readability in U.S. grade reading 
+            level (based on the Coleman-Liau Index), text similarity (based on the Cosine 
+            Similarity Percentage), and the counts of each word in both texts.</h2>
+    </div>
+
+    <!--Steps on how to use the page.--> 
+    <br>
+    <h2>1. Input two texts and click "Compare" to see how similar they are!</h2>
+    <h2>2. Change the texts and re-click "Compare" to see how their similarity changes.</h2>
+    <h2>3. Click "Reset" to remove all inputs and start over.</h2>
+
+    <!--Text area to input the user's texts. Upon clicking compare, shows the text's 
+        word count, character count, and readability in U.S. grade reading level.-->
+    <div class="textArea" id="textArea">
+        <!--Area for text 1-->
+        <div class="normalTextArea" id="area1">
+            <span class="normalSpan"> <b>Text 1</b> </span>
+            <textarea id="text1" style="background-color: #e6f3f8"></textarea>  
+            <div class="leftSpan" id="countSpan1"></div>
+            <div class="leftSpan" id="charSpan1"></div>
+            <div class="leftSpan" id="readability1"></div>
+        </div>
+        <!--Area for text 2-->
+        <div class="normalTextArea" id="area2">
+            <span class="normalSpan"> <b>Text 2</b> </span>
+            <textarea id="text2" style="background-color: #ebe8fc;"></textarea>
+            <div class="rightSpan" id="countSpan2"></div>
+            <div class="rightSpan" id="charSpan2"></div>
+            <div class="rightSpan" id="readability2"></div>
+        </div>
+    </div>
+    
+    <div style="clear: both;">
+        <!--Compare button to generate text stats and reset button to remove all inputs-->
+        <div class="button-center" style="float: left;">
+            <button class="compare" onclick="compare()" style="margin-top: 1rem;">Compare</button>
+        </div>
+
+        <div class="button-center" style="float: left;">
+            <button class="reset" onclick="reset()">Reset</button>
+        </div>
+
+        <!--Error message if any of the text areas are empty.-->
+        <div class="error" id="error"></div>
+        
+        <!--Cosine similarity and table of word counts.-->
+        <div class="cosineSim" id="cosineSim"></div>
+        <table class="wordCount" id="wordCount">
+            <colgroup>
+                <col/>
+                <col/>
+                <col/>
+            </colgroup>
+        </table>
+    </div>
+</body>
+</html>
