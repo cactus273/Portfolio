@@ -1,6 +1,5 @@
-// COMP10003 Mini Project - Text Compare
-// Jesslyn Andriono - 1368995
-// Semester 1 2023 - 26 May 2023
+// Text Compare Website
+// Made by Jesslyn Andriono, May 2023
 
 // Declare constants
 const RESET = "reset";
