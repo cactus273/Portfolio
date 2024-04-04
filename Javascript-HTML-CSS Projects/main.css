@@ -1,0 +1,530 @@
+* {
+    font-family: Helvetica, sans-serif;
+}
+
+body {
+    color: rgb(55, 60, 66);
+}
+
+#hello_div{
+    padding-top:  10px;
+    padding-bottom:  10px;
+    color: blue;
+}
+
+img {
+    width: 65%;
+    padding-bottom: 12pt;
+}
+
+h1 {
+    margin-top: 10pt;
+}
+
+.search-result {
+    padding: 10pt;
+    border: 1px solid rgb(55, 60, 66);
+    margin-top: 10pt;
+    margin-bottom: 10pt;
+    background-color: whitesmoke;
+    border-radius: 10pt;
+    color: rgb(55, 60, 66);
+}
+
+.search-result a {
+    text-decoration-color: rgb(255, 0, 102);
+}
+
+.search-result:hover {
+    background-color: #e0e0e0;
+}
+
+.search-truck-name {
+    font-size: 20pt;
+    padding-bottom: 5pt;
+}
+
+.search-image{
+    height: 120px;
+    width: 200px;
+    vertical-align: middle;
+}
+
+.search-truck-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 0pt;
+}   
+
+.search-truck-name:hover {
+    text-decoration: underline;
+    text-decoration-color: rgb(255, 0, 102);
+}
+
+.info-box {
+    margin-bottom: 0pt;
+    padding: 0pt;
+    background-color: whitesmoke;
+    border-radius: 0pt 0pt 0pt 10pt;
+}
+
+.info-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 0pt;
+    max-height: 270px; 
+    border-radius: 0pt 0pt 10pt 0pt;
+}
+
+.info-image-div {
+    padding-left: 0pt;
+    padding-right: 0pt;
+}
+
+.info-name {
+    background-color: rgb(0, 0, 99);
+    color: whitesmoke;
+    margin: 0pt;
+    padding: 15pt;
+    padding-left: 20pt;
+    padding-top: 25pt;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+#edit-name {
+    background-color: white;
+    color: rgb(55, 60, 66);
+}
+
+#edit-image {
+    width: 450px;
+}
+
+.info-details {
+    padding: 15pt;
+    padding-left: 20pt;
+    margin: 0pt;
+    font-size: 14pt;
+    line-height: 30pt;
+}
+
+#new_location {
+    line-height: normal;
+    width: 500px;
+}
+
+.info-details input {
+    font-size: 14pt;
+    padding: 0pt;
+    padding-left: 5pt;
+    font-weight: normal;
+    background-color: white;
+    color: rgb(55, 60, 66);
+    width: 150px;
+    height: 30px;
+    border: 1pt solid rgb(55, 60, 66);
+}
+
+.info-details.alert-empty  input {
+    border: 1pt solid rgb(255, 0, 102) !important;
+}
+
+.info-details.alert-empty textarea {
+    border: 1pt solid rgb(255, 0, 102);
+}
+
+.info-details.add-input {
+    color: rgb(55, 60, 66);
+}
+
+.top-info {
+    margin-bottom: 10pt;
+}
+
+.bottom-info {
+    margin-top: 10pt;
+}
+
+.info-location {
+    padding: 30pt;
+    margin: 0pt;
+    font-size: 14pt;
+}
+
+.info-location textarea {
+    width: 700px;
+    height: 150px;
+}
+
+.info-side {
+    background-color: whitesmoke;
+    border-bottom: white 2pt solid;
+    padding: 25pt;
+    padding-top: 15pt;
+    padding-bottom: 15pt;
+    border-radius: 10pt 10pt 0pt 0pt;
+    margin-top: 10pt;
+}
+
+.info-side a {
+    color: rgb(255, 0, 102);
+    padding-left: 5pt;
+}
+
+.info-side a:hover {
+    color: rgb(204, 0, 81);
+}
+
+.info-side h3 {
+    font-weight: normal;
+    font-size: 16pt;
+}
+
+.info-side ul {
+    list-style-type: "\1F44D";
+    margin-bottom: 0pt;
+}
+
+.side-two{
+    border-top: 0pt;
+    border-radius: 0pt 0pt 10pt 10pt;
+    margin-top: 0pt;
+}
+
+.btn-search {
+    border: 1pt solid rgb(255, 0, 102);
+    color: rgb(255, 0, 102);
+    margin-left: 5pt;
+}
+
+.btn-search:hover {
+    border: 1pt solid rgb(255, 0, 102);
+    background-color: rgb(255, 0, 102);
+    color: whitesmoke;
+}
+
+.btn-search:focus {
+    border: 1pt solid rgb(255, 0, 102);
+}
+
+.search-location {
+    color: rgb(163, 163, 163);
+    margin-top: 3pt;
+    font-size: 10pt;
+}
+
+.search-location:hover {
+    color: rgb(163, 163, 163);
+    margin-top: 3pt;
+    font-size: 10pt;
+    text-decoration: none;
+}
+
+#btn-save:hover {
+    border: 1pt solid rgb(255, 0, 102);
+    color: rgb(255, 0, 102);
+    background-color: whitesmoke;
+}
+
+#btn-save {
+    border: 1pt solid rgb(255, 0, 102);
+    background-color: rgb(255, 0, 102);
+    color: whitesmoke;
+    margin-left: 20pt;
+}
+
+#btn-discard {
+    border: 1pt solid rgb(0, 0, 99);
+    color: rgb(0, 0, 99);
+    background-color: transparent;
+    margin-right: 0pt;
+    text-align: center;
+}
+
+#btn-discard:hover {
+    border: 1pt solid rgb(0, 0, 99);
+    background-color: rgb(0, 0, 99);
+    color: whitesmoke;
+}
+
+#btn-discard-second {
+    border: 1pt solid whitesmoke;
+    color: rgb(0, 0, 99);
+    background-color: whitesmoke;
+    margin-right: 0pt;
+    text-align: center;
+}
+
+#btn-discard-second:hover {
+    border: 1pt solid whitesmoke;
+    background-color: rgb(0, 0, 99);
+    color: whitesmoke;
+}
+
+#btn-save-div {
+    position: absolute; /* Reposition logo from the natural layout */
+    left: 1170px;
+    top: 75px;
+    z-index: 2;
+}
+
+#btn-edit-div {
+    width: 100%;
+    text-align: right;
+}
+
+#edit-popular-items {
+    width: 230px;
+    height: 110px;
+}
+
+.card-header {
+    font-weight: bold;
+    color: whitesmoke;
+    padding: 15pt;
+    background-color: rgb(0, 0, 99);
+    font-size: 16pt;
+}
+
+.card-header.home:hover {
+    text-decoration: underline;
+    text-decoration-color: rgb(255, 0, 102);
+}
+
+.card-subheader {
+    padding: 8pt;
+    padding-left: 15pt;
+    color: rgb(163, 163, 163);
+    font-size: 12pt;
+    font-weight: bold;
+    padding-bottom: 0pt;
+}
+
+.card-subheader-home {
+    padding: 8pt;
+    padding-left: 15pt;
+    color: rgb(255, 0, 102);
+    font-size: 12pt;
+    font-weight: bold;
+    padding-bottom: 0pt;
+}
+
+.card-text {
+    padding: 8pt;
+    padding-top: 0pt;
+    padding-left: 15pt;
+    color: rgb(163, 163, 163);
+    font-size: 10pt;
+    font-weight: normal;
+}
+
+.home-card {
+    padding: 0pt;
+    border: 1pt solid rgb(55, 60, 66);
+    border-radius: 10pt;
+    margin: 0pt;
+    background-color: whitesmoke;
+}
+
+.home-card a:hover {
+    text-decoration: none;
+}
+
+.card-gutter {
+    padding: 5pt;
+    margin-bottom: 25pt;
+}
+
+.card-image {
+    object-fit: cover;
+    border-radius: 10pt 10pt 0pt 0pt;
+    width: 100%;
+    max-height: 200px;
+    padding: 0pt;
+}
+
+.container {
+    padding: 0pt;
+}
+
+#feedback.alert {
+    height: 250px;
+    width: 150px;
+    float: right;
+    padding-top: 112px;
+    border: 1px solid rgb(0, 0, 99);
+    border-radius: 10pt;
+    background-color: transparent;
+    color: rgb(55, 60, 66);
+    padding-bottom: 0pt;
+}
+
+button {
+    border-radius: 5pt;
+    background-color: white;
+    padding: 10pt;
+    margin: 20pt;
+    font-size: 12pt;
+}
+
+
+#new_name {
+    width: 300px;
+}
+
+#new_image {
+    width: 300px;
+}
+
+#new_opening_hours {
+    width: 200px;
+}
+
+#new_popular_items {
+    width: 300px;    
+}
+
+#location_entry_container {
+    vertical-align: top;
+}
+
+.row {
+    width: 100%;
+}
+
+#title {
+    font-weight: 900;
+    color: rgb(255, 0, 102);
+}
+
+#popular {
+    margin-bottom: 0px;
+    color: rgb(0, 0, 99);
+    background-color: transparent;
+    font-size: 24pt;
+    margin-left: -10px;
+}
+
+.nav-link {
+    margin-right: 5px;
+}
+
+.info-name.rounded-name {
+    border-radius: 0pt 0pt 10pt 10pt;
+    margin-left: -30px;
+    padding-left: 40pt;
+}
+
+.bg-layout {
+    background-color: whitesmoke !important; 
+}
+
+.remove-underline:hover {
+    text-decoration: none;
+}
+
+.home-text {
+    font-size: 20px;
+    color: rgb(163, 163, 163);
+    margin-bottom: 20px;
+    padding-left: 18px;
+}
+
+#title {
+    font-family: brush script mt;
+    font-size: 30px;
+}
+
+#view-button {
+    background-color: rgb(255, 0, 102);
+    color: whitesmoke;
+    margin: 5pt;
+    margin-bottom: 0pt;
+}
+
+#view-button:hover {
+    background-color: transparent;
+    color: rgb(255, 0, 102);
+    border: 1pt solid rgb(255, 0, 102);
+}
+
+#welcome {
+    font-size: 28pt;
+}
+
+#purpose {
+    padding-top: 10pt;
+    padding-left: 50pt;
+}
+
+#purpose2 {
+    text-align: right;
+    padding-right: 80pt;
+}
+
+.edit-btn:hover {
+    text-decoration: none;
+    color:rgb(55, 60, 66);
+}
+
+.edit-btn {
+    color: whitesmoke;
+    font-size: 15pt;
+}
+
+#new_name.alert-empty {
+    border: 2pt solid rgb(255, 0, 102);
+}
+
+#new_image.alert-empty {
+    border: 2pt solid rgb(255, 0, 102);
+}
+
+#new_opening_hours.alert-empty {
+    border: 2pt solid rgb(255, 0, 102);
+}
+
+#new_popular_items.alert-empty {
+    border: 2pt solid rgb(255, 0, 102);
+}
+
+#new_location.alert-empty {
+    border: 2pt solid rgb(255, 0, 102);
+}   
+
+#new_similar_truck_ids.alert-empty {
+    border: 2pt solid rgb(255, 0, 102);
+}
+
+#new_user_rating.alert-empty {
+    border: 2pt solid rgb(255, 0, 102);
+}
+
+#new_expected_meal_price.alert-empty {
+    border: 2pt solid rgb(255, 0, 102);
+}
+
+.add-example {
+    color: rgb(163, 163, 163);
+    font-size: 10pt;
+}
+
+#new_similar_truck_ids {
+    width: 300px;
+    font-size: 10pt;
+}
+
+::placeholder {
+    color: rgb(163, 163, 163);
+}
+
+.ui-dialog-titlebar {
+    background-color: whitesmoke;
+}
+
+.ui-widget-content {
+    background-color: rgb(0, 0, 99);
+}

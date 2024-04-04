@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'people.js') }}"></script>
+        
+        <script>
+            let data = {{data|tojson}} 
+            console.log(data)
+        </script>
+
+    <div id="container">    
+    <h1 id="welcome" class="info-name rounded-name">Welcome to Columbia Food Trucks!</h1>
+    <h2 id="purpose" class="home-text"><i>Explore the range of food trucks near Columbia University,</i></h2>
+    <h2 id="purpose2" class="home-text"><i>for quick and delicious meals that are a bang for your buck.</i></h2>
+
+
+    <h1 class="info-name" id="popular">Popular food trucks this week:</h1>
+    
+    <!--<h2 class="home-text" id="home-text">Celebrate the end of midterms by grabbing a quick and delicious meal near campus:</h2>-->
+    
+    <div id="top3" class="row"></div>
+
+
+    </div>
+
+{% endblock %}

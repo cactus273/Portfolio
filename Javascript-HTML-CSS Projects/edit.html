@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <script type="text/javascript" src="{{ url_for('static', filename = 'people.js') }}"></script>
+
+    <script>
+        let data = {{data|safe|tojson}}
+        console.log(data)
+
+        let truck_id = {{truck_id|safe|tojson}} 
+        console.log(truck_id)
+    </script>
+
+    <div id="container" class="row top-info">
+    
+    <div class="col-md-7 info-box">
+        <input id="edit-name" class="info-name" value="{{truck_id.name}}"></input>
+        <div class="info-details">
+            <div>Opening Hours: <input id="edit-hours" class="info-name" value="{{truck_id.opening_hours}}"></input></div>
+            <div>Expected Meal Price <span class="add-example">(in $)</span>: <input id="edit-price" class="info-name" value="{{truck_id.expected_meal_price}}"></input></div>
+            <div>Rating <span class="add-example">(out of 10)</span>: <input id="edit-rating" class="info-name" value="{{truck_id.user_rating}}"></input> </div>
+        </div>
+    </div>
+    <div class="col-md-5 info-image-div">
+        <img class="info-image" src="{{truck_id.image}}" alt="{{truck_id.name}} Food Truck Image">
+        <input id="edit-image" value="{{truck_id.image}}"></input>
+    </div>
+    <div class="row bottom-info">
+        <div class="col-md-8 info-location">
+            <div><textarea id="edit-location">{{truck_id.location}}</textarea></div>
+        </div>
+        <div class="col-md-4">
+            <div class="info-side"> 
+                <h3><b>Popular menu items:</b></h3>
+                <textarea id="edit-popular-items">{% for item in truck_id.popular_items %}{% if loop.index < truck_id.popular_items|length%}{{item}},{%else%}{{item}}{%endif%}{% endfor %}</textarea>
+            </div>
+            <div class="info-side side-two"> 
+                <h3><b>Similar food trucks:</b></h3>
+                <textarea id="edit-similar-trucks">{% for id in truck_id.similar_truck_ids %}{% if loop.index < truck_id.similar_truck_ids|length%}{{id}},{%else%}{{id}}{%endif%}{% endfor %}</textarea>
+            </div>
+        </div>
+    </div>
+    
+    <div id="btn-edit-div">
+    <button id="btn-discard" class="btn btn-outline-success">Discard Changes</button>
+    <button id="btn-save" class="btn btn-outline-success">Save Changes</button>
+    </div>
+    
+    <div id="dialog" title="Are you sure?"><a href="/view/{{truck_id.id}}/"><button id="btn-discard-second" class="btn btn-outline-success">Discard Changes</button></a></div>
+    
+    <br>
+    <br>
+    <br>
+</div>
+{% endblock %}

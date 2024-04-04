@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <script type="text/javascript" src="{{ url_for('static', filename = 'people.js') }}"></script>
+
+    <script>
+        let data = {{data|safe|tojson}}
+        console.log(data)
+
+        let truck_id = {{truck_id|safe|tojson}} 
+        console.log(truck_id)
+    </script>
+
+    <div id="container" class="row top-info">
+    
+    <div class="col-md-7 info-box">
+        <h1 class="info-name"> {{truck_id.name}} <a class="edit-btn" href="/edit/{{truck_id.id}}/">✎</a></h1>
+        <div class="info-details">
+            <div>Opening Hours: <b>{{truck_id.opening_hours}}</b></div>
+            <div>Expected Meal Price: <b>${{truck_id.expected_meal_price}} </b></div>
+            <div>Rating: <b>{{truck_id.user_rating}}/10</b> </div>
+        </div>
+    </div>
+    <div class="col-md-5 info-image-div">
+        <img class="info-image" src="{{truck_id.image}}" alt="{{truck_id.name}} Food Truck Image">
+    </div>
+    <div class="row bottom-info">
+        <div class="col-md-8 info-location">
+            <div>{{truck_id.location}}</div>
+        </div>
+        <div class="col-md-4">
+            <div class="info-side"> 
+                <h3><b>Popular menu items:</b></h3>
+                <ul>
+                    {% for item in truck_id.popular_items %}
+                        <li> {{item}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="info-side side-two"> 
+                <h3><b>Similar food trucks:</b></h3>
+                {%for truck in truck_id.similar_truck_ids%}
+                    {%for dict in data%}
+                        {%if dict.id == truck%}
+                            <a id="truck{{truck}}" href="/view/{{truck}}">{{dict.name}}</a>
+                            <br>
+                        {%endif%}
+                    {%endfor%}
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+    <br>
+    <br>
+    <br>
+</div>
+{% endblock %}

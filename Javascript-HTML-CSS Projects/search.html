@@ -1,0 +1,146 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'people.js') }}"></script>
+        
+        <script>
+            let data = {{data|tojson}} 
+            console.log(data)
+
+            let name_results = {{name_results|tojson}} 
+            console.log(name_results)
+
+            let menu_results = {{menu_results|tojson}} 
+            console.log(menu_results)
+
+            let location_results = {{location_results|tojson}} 
+            console.log(location_results)
+
+            let results_len = {{results_len|tojson}} 
+            console.log(results_len)
+
+            let search_text = {{search_text|tojson}}
+            console.log(search_text)
+
+            let empty = {{empty|tojson}}
+            console.log(empty)
+        </script>
+
+    <div id="container">   
+    {% if not empty %}
+        <h1 id="search_header" class="info-name rounded-name">Showing {{results_len}} results for "{{search_text}}"</h1>
+    {% else %}
+        <h1 id="search_header" class="info-name rounded-name">No results found for "{{search_text}}"</h1>
+    {% endif %}
+
+        <div id="results">
+            {%for truck in name_results%}
+                    <a id="truck{{truck[1]}}" class="remove-underline" href="/view/{{truck[1]}}">
+                        <div class="search-result row">
+                            <div class="col-md-2 search-image">
+                                <img src="{{truck[5]}}" alt="{{truck[0]}}Truck Image" class="search-truck-image">
+                            </div>
+                            <div class="col-md-10">
+                                <div class="search-truck-name">
+                                <b>{{truck[0]}}</b>
+                                </div>
+                                <div class="search-truck-item">
+                                Popular Menu Items: 
+                                {%for item in truck[2]%}
+                                    {%if loop.index < truck[2]|length%}
+                                        <span><i>{{item}}, </i></span>
+                                    {%else%}
+                                        <span><i>{{item}} </i></span>
+                                    {%endif%}
+                                {%endfor%}
+                                </div> 
+                                <div class="search-location">
+                                {%for word in truck[3]%}
+                                    <span>{{word}} </span>
+                                {%endfor%}
+                                </div>
+                            </div>   
+                        </div>
+                    </a>
+            {%endfor%}
+
+            {%for truck in menu_results%}
+                    <a id="truck{{truck[1]}}" class="remove-underline" href="/view/{{truck[1]}}">
+                        <div class="search-result row">
+                            <div class="col-md-2 search-image">
+                                <img src="{{truck[5]}}" alt="Truck Image" class="search-truck-image">
+                            </div>
+                            <div class="col-md-10">
+                                <div class="search-truck-name">
+                                {{truck[0]}}
+                                </div>
+                                <div>
+                                Popular Menu Items: 
+                                {%for item in truck[2]%}
+                                    {% if loop.index < truck[2]|length%}
+                                        {%if item in truck[4]%}
+                                            <span><i><b>{{item}}</b>, </i></span>
+                                        {%else%}
+                                            <span><i>{{item}}, </i></span>
+                                        {%endif%}
+                                    {%else%}
+                                        {%if item in truck[4]%}
+                                            <span><i><b>{{item}}</b> </i></span>
+                                        {%else%}
+                                            <span><i>{{item}} </i></span>
+                                        {%endif%}
+                                    {%endif%}
+                                {%endfor%}
+                                </div> 
+                                <div class="search-location">
+                                Location: 
+                                {%for word in truck[3]%}
+                                    <span>{{word}} </span>
+                                {%endfor%}
+                                </div>
+                            </div>   
+                        </div>
+                    </a>
+            {%endfor%}
+
+            {%for truck in location_results%}
+                    <a id="truck{{truck[1]}}" class="remove-underline" href="/view/{{truck[1]}}">
+                        <div class="search-result row">
+                            <div class="col-md-2 search-image">
+                                <img src="{{truck[5]}}" alt="Truck Image" class="search-truck-image">
+                            </div>
+                            <div class="col-md-10">
+                                <div class="search-truck-name">
+                                {{truck[0]}}
+                                </div>
+                                <div>
+                                Popular Menu Items: 
+                                {%for item in truck[2]%}
+                                    {% if loop.index < truck[2]|length%}
+                                        <span><i>{{item}}, </i></span>
+                                    {%else%}
+                                        <span><i>{{item}} </i></span>
+                                    {%endif%}
+                                {%endfor%}
+                                </div> 
+                                <div class="search-location">
+                                Location: 
+                                {%for word in truck[3]%}
+                                    {%for match in truck[4]%}
+                                        {%if word in match or match in word%}
+                                            <span><b>{{word}}</b> </span>
+                                        {%else%}
+                                            <span>{{word}} </span>
+                                        {%endif%}
+                                    {%endfor%}
+                                {%endfor%}
+                                </div>   
+                            </div>
+                        </div>
+                    </a>
+            {%endfor%}
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'people.js') }}"></script>
+    
+    <script>
+        let data = {{data|tojson}} 
+        console.log(data)
+    </script>
+
+    <div id="feedback"></div>
+
+    <div class="info-name rounded-name"> Add a new food truck: <span id="btn-save-div">
+    <button class="btn-search" id="submit_name">Add Truck</button></span> </div>
+    
+    <div class="info-details add-input">
+    <div id="name_entry_container">
+        Food Truck Name: <input id="new_name"></input>  
+    </div>
+    <div id="image_entry_container">
+        Image URL: <input id="new_image"></input>
+    </div>
+    <div id="opening_hours_entry_container">
+        Opening Hours <span class="add-example">("7am-7pm")</span>: <input id="new_opening_hours"></input>
+    </div>
+    <div id="location_entry_container">
+        <div>Location and nearby landmarks <span class="add-example">("116th and Amsterdam. In front of Wien Hall.")</span>: </div><textarea id="new_location"></textarea>
+    </div>
+    <div id="popular_items_entry_container">
+        Popular Menu Items <span class="add-example">("Beef, Chicken, Rice")</span>: <input id="new_popular_items"></input>
+    </div>
+    <div id="user_rating_entry_container">
+        User Rating <span class="add-example">(1-10)</span>: <input id="new_user_rating"></input>
+    </div>
+    <div class="ui-widget" id="similar_truck_ids_entry_container">
+        Similar Food Trucks' IDs <span class="add-example">IDs Only, ("7, 2, 4")</span>:
+        <input id="new_similar_truck_ids" placeholder="Type Truck Name to View ID"></input>
+
+    </div>
+    <div id="expected_meal_price_entry_container">
+        Average Meal Price in $ <span class="add-example">("12")</span>: <input id="new_expected_meal_price"></input>
+    </div>
+</div>
+{% endblock %}
