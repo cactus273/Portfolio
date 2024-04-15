@@ -12,6 +12,9 @@ Walkthrough of Website:
 ### Text Comparison Website
 Creating a website that can compare two texts and show the word counts, character counts, readability in U.S. grade reading level (based on the Coleman-Liau Index), text similarity (based on the Cosine Similarity Percentage), and the counts of each word in both texts.
 
+## Fruit Hangman Game
+Creating a hangman game played on the console where users are required to guess the secret fruit by guessing one letter at a time. Wrong words will add a strike to the hangman. The game ends when the fruit is guessed correctly or when the hangman is completed.
+
 
 ## C Projects
 ### 500 Digit Integer Calculator
