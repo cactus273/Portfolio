@@ -5,7 +5,7 @@ Descriptions of projects, images, and finished products: https://jesslyn-alexis-
 ### Food Truck Database Website
 Creating a website that can search through a database of food trucks near the Columbia University campus to help users find quick, delicious, and cheap meal options. Users can search by the name of the truck, the popular menu items, and by its location. Users are also able to view, add, or update existing data stored on the server. This project uses Python (Flask Web Framework), JavaScript, HTML, and CSS.
 
-Walkthrough of Website:
+Video Walkthrough of Website:
 
 [![Food Truck Database - Website Walkthrough](https://img.youtube.com/vi/RzrDEvxFioE/0.jpg)](https://www.youtube.com/watch?v=RzrDEvxFioE)
 
