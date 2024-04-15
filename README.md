@@ -5,15 +5,21 @@ Descriptions of projects, images, and finished products: https://jesslyn-alexis-
 ### Food Truck Database Website
 Creating a website that can search through a database of food trucks near the Columbia University campus to help users find quick, delicious, and cheap meal options. Users can search by the name of the truck, the popular menu items, and by its location. Users are also able to view, add, or update existing data stored on the server. This project uses Python (Flask Web Framework), JavaScript, HTML, and CSS.
 
+Walkthrough of Website:
+
+[![Food Truck Database - Website Walkthrough](https://img.youtube.com/vi/RzrDEvxFioE/0.jpg)](https://www.youtube.com/watch?v=RzrDEvxFioE)
+
 ### Text Comparison Website
 Creating a website that can compare two texts and show the word counts, character counts, readability in U.S. grade reading level (based on the Coleman-Liau Index), text similarity (based on the Cosine Similarity Percentage), and the counts of each word in both texts.
 
+
 ## C Projects
-##3 500 Digit Integer Calculator
+### 500 Digit Integer Calculator
 Creating a calculator that can do addition, multiplication, and exponentiation with 500-digit integers. First, the number inputted is converted into a 'longint', a data type that stores each digit in an array and has a buddy variable indicating how many digits the number has. Next, functions that can add, multiply, and exponent 'longint' data types are made. The project was done as the first assignment for the class 'Foundations of Algorithms' and was used to test my understanding of arrays, strings, functions, structs, and the typedef facility.
 
 ### Text Generative Tool Algorithm 
 Creating an algorithm that takes input sentences and prompts to return the most likely continuation of the prompt, if any, based on the input sentences. The input sentences are first processed letter by letter to create a prefix automaton plotting the frequency of each letter with the same exact prefix, like in the diagram below. Each prompt is then used to determine the suffix with the highest frequency. The project was done as the second assignment for the class 'Foundations of Algorithms' and was used to test my understanding of dynamic memory and linked data structures and extend my program design, testing, and debugging skills.
+
 
 ## Python Projects
 ### Bejeweled Game with AI Player
