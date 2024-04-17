@@ -1,7 +1,6 @@
 # Coding Portfolio 2024 - Project Descriptions
  
 ## JavaScript / HTML / CSS Projects
-UI/UX Design Portfolio: https://jesslyn-alexis-andriono.webflow.io/
 ### Food Truck Database Website
 Creating a website that can search through a database of food trucks near the Columbia University campus to help users find quick, delicious, and cheap meal options. Users can search by the name of the truck, the popular menu items, and by its location. Users are also able to view, add, or update existing data stored on the server. This project uses Python (Flask Web Framework), JavaScript, HTML, and CSS.
 
