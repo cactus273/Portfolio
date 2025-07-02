@@ -1,7 +1,7 @@
 # COMS W3132 Individual Project
 
 ## Author
-Jesslyn Andriono jaa2289@barnard.edu
+Jesslyn Andriono
 
 ## Project Title
 Falling Squares Matching Game
