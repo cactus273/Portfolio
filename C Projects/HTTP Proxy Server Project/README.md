@@ -2,6 +2,8 @@
 
 A simple caching HTTP/1.1 proxy server implemented in C.
 
+Completed: 26 May 2025
+
 ## Team Members
 - **Bryan**: Stage 1 (Simple proxy) and partial Stage 4 (Expiration)
 - **Me**: Stages 2 (Naive caching), 3 (Valid caching), and partial Stage 4 (Expiration)
